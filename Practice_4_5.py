@@ -134,6 +134,14 @@ class Depostite:
             for el in item:
                 print(f'{el.name}')
 
+    def get_equipments_in_place(self, place):
+        try:
+            print(f'{place} has:')
+            for value in self.equipments.get(place):
+                print(value.name)
+        except TypeError:
+            print(f'{place} has not equipments')
+
 
 printer = Printer(5, '198.162.0.255', 'Main Printer')
 printer.use_printer(6)
@@ -157,3 +165,4 @@ xerox_2 = Xerkox(10, '4.4.4.4', 'Second Xerox')
 deposite.set_equipment('Sacond Office', printer_2, scanner_2, xerox_2)
 deposite.get_equipments()
 deposite.get_place('Third Printer')
+deposite.get_equipments_in_place('Central Office')
